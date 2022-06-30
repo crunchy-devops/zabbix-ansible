@@ -1,0 +1,67 @@
+---
+# tasks file for proxy.role
+- name: update cache
+  apt:
+    update_cache: yes
+  tags:
+    - cache
+- name: wget latest deb repo package for zabbix
+  get_url:
+    url: https://repo.zabbix.com/zabbix/6.1/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.1-1+ubuntu20.04_all.deb
+    dest: /home/ubuntu/zabbix.deb
+  tags:
+    - wget
+- name: dpkg
+  apt:
+    deb: /home/ubuntu/zabbix.deb
+  tags:
+    - dpkg
+- name: update cache deb
+  apt:
+    update_cache: yes
+  tags:
+    - cache-deb
+- name: Install zabbix packages for proxy
+  apt:
+    name: "{{ zabbix_packages }}"
+    state: present
+  tags:
+    - packages
+- name: create sqlite directory
+  file:
+    path: /var/lib/sqlite
+    state: directory
+    mode: '777'
+  register: results
+- name: Create sqlite database
+  shell: sqlite3 /var/lib/sqlite/zabbix.db < /usr/share/doc/zabbix-sql-scripts/sqlite3/proxy.sql
+  when: results is not defined
+- name: create sqlite directory
+  file:
+    path: /var/lib/sqlite/zabbix.db
+    state: touch
+    mode: '777'
+- name: change zabbix Sqlite Name
+  replace:
+    path: /etc/zabbix/zabbix_proxy.conf
+    regexp: '^DBName=zabbix_proxy'
+    replace: 'DBName=/var/lib/sqlite/zabbix.db'
+    backup: yes
+- name: change zabbix server IP
+  replace:
+    path: /etc/zabbix/zabbix_proxy.conf
+    regexp: '^Server=127.0.0.1'
+    replace: "Server={{ hostvars['master01']['ansible_host'] }}"
+    backup: yes
+- name: Start zabbix-proxy
+  systemd:
+    name: zabbix-proxy
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+- name: Start zabbix-agent
+  systemd:
+    name: zabbix-agent
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

@@ -1,0 +1,6 @@
+---
+# defaults file for proxy.role
+zabbix_packages:
+  - zabbix-sql-scripts
+  - zabbix-proxy-sqlite3
+  - zabbix-agent

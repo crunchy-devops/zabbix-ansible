@@ -1,8 +1,8 @@
 ---
 - name: Install Zabbix
-  hosts: local
+  hosts: proxy
   become: true
   roles:
-    - role: 'zabbix.role'
+    - role: 'proxy.role'
 
 
