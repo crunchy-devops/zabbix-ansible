@@ -9,6 +9,7 @@ Deployment of a zabbix Sandbox
 ```shell
 sudo apt update   # update all packages
 sudo apt -y install python3-venv
+sudo apt-get -y install git wget htop iotop iftop
 
 #fork and clone ---> git clone https://github.com/crunchy-devops/zabbix-ansible.git
 git clone https://github.com/<your_repo>/zabbix-ansible.git
