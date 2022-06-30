@@ -29,12 +29,12 @@ ssh-copy-id ubuntu@172.15x.xx  # propagate ssh key
 [local]
 localhost ansible_user=ubuntu  ansible_connection=local ansible_python_interpreter=python3
 [master]
-master01 ansible_host=172.81.178.223 ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
+master01 ansible_host=172.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
 [proxy]
-proxy01 ansible_host=170.175.165.250 ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
+proxy01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
 [agent]
-java01 ansible_host=170.75.171.81 ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
-python01 ansible_host=170.75.164.125 ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
+java01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
+python01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
 
 
 
