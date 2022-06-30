@@ -27,7 +27,7 @@ ssh-copy-id ubuntu@172.15x.xx  # propagate ssh key
 
 ## Inventory file 
 [local]
-localhost ansible_user=ubuntu  ansible_connection=local ansible_python_interpreter=python3
+localhost ansible_user=ubuntu  ansible_connection=local 
 [master]
 master01 ansible_host=172.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
 [proxy]
