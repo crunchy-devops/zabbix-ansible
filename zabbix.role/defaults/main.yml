@@ -1,0 +1,12 @@
+---
+# defaults file for zabbix.role
+zabbix_packages:
+  - zabbix-server-pgsql
+  - zabbix-frontend-php
+  - php7.4-pgsql
+  - zabbix-apache-conf
+  - zabbix-sql-scripts
+  - zabbix-agent
+docker_packages:
+  - docker.io
+  - python3-docker
