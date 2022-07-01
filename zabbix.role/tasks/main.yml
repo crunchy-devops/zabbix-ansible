@@ -34,7 +34,7 @@
   tags:
     - docker
 - name: Added user to docker group
-  shell: usermod -aG docker {{ ansible_user }}exit
+  shell: usermod -aG docker {{ ansible_user }}
 - name: Start postgresql
   docker_container:
     name: 'db'

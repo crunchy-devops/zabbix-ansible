@@ -24,8 +24,11 @@ ansible --version  # check version number , should be the latest 2.13.1+
 ```shell
 ssh-keygen -t rsa -b 4096   # sans passphrase
 ssh-copy-id ubuntu@172.15x.xx  # propagate ssh key
-
+```
+`
 ## Inventory file 
+
+```shell
 [local]
 localhost ansible_user=ubuntu  ansible_connection=local 
 [master]
@@ -35,19 +38,16 @@ proxy01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/h
 [agent]
 java01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
 python01 ansible_host=170.xx.xx.xx ansible_user=ubuntu ansible_ssh_private_key=/home/ubuntu/.ssh/id_rsa
-
-
-
+cd zabbix-ansible 
+```
+## check the inventory file 
+```ansible all -i inventory -m ping ```
 
 
 
 ## Install Zabbix Sandbox using ansible 
 ```shell
-ansible-playbook -i inventory playbook.yml  # run a playbook
-
-cd zabbix-ansible
-source venv/bin/activate # activate the python virtualenv
-docker ps 
+ansible-playbook -i inventory playbook.yml proxy.yml # run a playbook
 ```
 
 
