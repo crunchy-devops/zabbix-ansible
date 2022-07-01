@@ -57,4 +57,4 @@ ansible-playbook -i inventory playbook.yml proxy.yml # run all playbooks
 
 ## Check the latest data
 
-![proxy](screenshots/proxy_host_monitoring.png)
+![proxy](screenshots/latest_data_from_proxy.png)

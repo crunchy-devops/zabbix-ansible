@@ -1,0 +1,8 @@
+---
+- name: Install Zabbix
+  hosts: agent
+  become: true
+  roles:
+    - role: 'agent.role'
+
+
