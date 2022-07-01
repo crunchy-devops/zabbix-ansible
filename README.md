@@ -43,11 +43,18 @@ cd zabbix-ansible
 ## check the inventory file 
 ```ansible all -i inventory -m ping ```
 
-
-
 ## Install Zabbix Sandbox using ansible 
 ```shell
-ansible-playbook -i inventory playbook.yml proxy.yml # run a playbook
+ansible-playbook -i inventory playbook.yml proxy.yml # run all playbooks
 ```
+## Create a proxy in Zabbix web interface
 
+![proxy](screenshots/proxy_definition.png)
 
+## Set up a host which checks the sanity of the proxy host
+
+![proxy](screenshots/proxy_host_monitoring.png)
+
+## Check the latest data
+
+![proxy](screenshots/proxy_host_monitoring.png)
