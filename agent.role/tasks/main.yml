@@ -28,10 +28,10 @@
   tags:
     - packages
 - name: change zabbix agent hostname suitable to zabbix frontend
-  replace:
-    path: /etc/zabbix/zabbix_agentd.conf
+  lineinfile:
+    path: /etc/zabbix/zabbix_test:.conf
     regexp: '^Hostname=Zabbix server'
-    replace: 'Hostname={{ ansible_hostname }}'
+    line: 'Hostname={{ ansible_hostname }}'
     backup: yes
 - name: Start zabbix-agent
   systemd:

@@ -45,7 +45,7 @@ cd zabbix-ansible
 
 ## Install Zabbix Sandbox using ansible 
 ```shell
-ansible-playbook -i inventory playbook.yml proxy.yml # run all playbooks
+ansible-playbook -i inventory playbook.yml proxy.yml agent.yml # run all playbooks
 ```
 ## Create a proxy in Zabbix web interface
 
